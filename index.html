@@ -1,31 +1,31 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#111111" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <title>HOUSE OF GEN.G 2026｜現場全攻略</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>HOUSE OF GEN.G 2026 現場全攻略</title>
   <style>
     :root{
-      --bg:#f4f4f0;
+      --bg:#f3f3ef;
       --card:#fff;
       --ink:#171717;
-      --muted:#676767;
-      --line:#e8e8e1;
-      --gold:#f0c84b;
-      --gold-soft:#fff6ca;
-      --green:#146c4b;
+      --muted:#6b6b67;
+      --line:#e5e5de;
+      --gold:#f1c94d;
+      --gold-soft:#fff6cf;
+      --green:#126a49;
       --green-soft:#eaf8f1;
-      --red:#bb3838;
-      --red-soft:#fff0f0;
-      --blue:#315fa8;
+      --blue:#315e9f;
       --blue-soft:#edf4ff;
-      --purple:#6a45a0;
-      --purple-soft:#f5efff;
-      --shadow:0 10px 28px rgba(0,0,0,.08);
+      --purple:#69469b;
+      --purple-soft:#f4efff;
+      --gray-soft:#f1f1ef;
+      --red:#b53b3b;
+      --red-soft:#fff0f0;
       --radius:20px;
+      --shadow:0 10px 28px rgba(0,0,0,.075);
       --safe-bottom:max(18px, env(safe-area-inset-bottom));
     }
 
@@ -35,230 +35,249 @@
       margin:0;
       color:var(--ink);
       background:
-        radial-gradient(circle at 85% 0%, rgba(240,200,75,.20), transparent 28rem),
+        radial-gradient(circle at 88% 0, rgba(241,201,77,.22), transparent 26rem),
         var(--bg);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",
+        "PingFang TC","Microsoft JhengHei",sans-serif;
       line-height:1.55;
-      padding-bottom:calc(82px + var(--safe-bottom));
+      padding-bottom:calc(76px + var(--safe-bottom));
     }
     button,input{font:inherit}
     button{cursor:pointer}
     a{color:inherit}
-    .wrap{width:min(100%,760px);margin:0 auto}
+    .wrap{width:min(100%,780px);margin:0 auto}
+
     .hero{
+      padding:calc(24px + env(safe-area-inset-top)) 20px 25px;
+      color:white;
       background:#111;
-      color:#fff;
-      padding:calc(22px + env(safe-area-inset-top)) 20px 26px;
       position:relative;
       overflow:hidden;
     }
-    .hero::after{
+    .hero:after{
       content:"";
-      position:absolute;
-      right:-70px;top:-90px;
       width:250px;height:250px;
+      position:absolute;right:-70px;top:-90px;
       border-radius:50%;
-      background:radial-gradient(circle,rgba(240,200,75,.75),rgba(240,200,75,0));
+      background:radial-gradient(circle,rgba(241,201,77,.75),rgba(241,201,77,0));
       pointer-events:none;
     }
-    .eyebrow{font-size:12px;letter-spacing:.14em;color:#e8cf70;font-weight:800}
-    h1{font-size:30px;line-height:1.13;margin:8px 0 10px;max-width:520px}
-    .hero p{margin:0;color:#d9d9d9;font-size:14px;max-width:620px}
-    .hero-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+    .eyebrow{color:#efd978;font-size:12px;font-weight:900;letter-spacing:.13em}
+    h1{margin:8px 0 10px;font-size:30px;line-height:1.15;max-width:580px}
+    .hero p{margin:0;color:#d8d8d8;font-size:14px;max-width:650px}
+    .hero-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}
     .hero-chip{
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.16);
-      border-radius:999px;padding:7px 11px;font-size:12px;font-weight:700
+      padding:7px 11px;border:1px solid rgba(255,255,255,.17);
+      background:rgba(255,255,255,.1);border-radius:999px;
+      font-size:12px;font-weight:800
     }
 
-    .nowbar{
-      margin:-1px 0 0;
+    .clockbar{
       background:var(--gold);
-      color:#111;
-      padding:11px 18px;
-      font-size:13px;
-      font-weight:850;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      align-items:center;
+      padding:10px 16px;
+      display:flex;justify-content:space-between;align-items:center;gap:10px;
+      font-size:13px;font-weight:900
     }
     #kstClock{white-space:nowrap;font-variant-numeric:tabular-nums}
 
     .toolbar{
       position:sticky;top:0;z-index:20;
-      background:rgba(244,244,240,.92);
+      padding:10px 13px;
+      background:rgba(243,243,239,.94);
       backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(0,0,0,.06);
-      padding:10px 14px;
+      border-bottom:1px solid rgba(0,0,0,.06)
     }
-    .searchbox{
-      display:flex;align-items:center;gap:9px;
-      background:#fff;border:1px solid var(--line);border-radius:14px;
-      padding:10px 12px;box-shadow:0 3px 15px rgba(0,0,0,.04)
+    .search{
+      display:flex;align-items:center;gap:8px;
+      padding:10px 12px;background:white;border:1px solid var(--line);
+      border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,.04)
     }
-    .searchbox input{
-      width:100%;border:0;outline:0;background:transparent;color:var(--ink)
-    }
-    .filters{
+    .search input{width:100%;border:0;outline:0;background:transparent}
+    .top-jumps{
       display:flex;gap:8px;overflow:auto;padding-top:9px;
       scrollbar-width:none
     }
-    .filters::-webkit-scrollbar{display:none}
-    .filter{
-      border:1px solid #ddd;background:#fff;border-radius:999px;
-      padding:7px 12px;font-size:12px;font-weight:800;white-space:nowrap
+    .top-jumps::-webkit-scrollbar{display:none}
+    .jump{
+      border:1px solid #ddd;background:white;border-radius:999px;
+      padding:7px 12px;font-size:12px;font-weight:900;white-space:nowrap
     }
-    .filter.active{background:#111;color:#fff;border-color:#111}
+    .jump.stage{background:#111;color:white;border-color:#111}
+    .jump.booth{background:var(--gold-soft);border-color:#eddc91}
 
-    main{padding:16px}
-    section{scroll-margin-top:112px;margin-bottom:24px}
-    .section-head{
-      display:flex;align-items:end;justify-content:space-between;gap:12px;
-      margin:10px 2px 12px
+    main{padding:15px}
+    section{scroll-margin-top:108px;margin-bottom:26px}
+    .section-title{
+      display:flex;justify-content:space-between;align-items:end;gap:10px;
+      margin:5px 2px 12px
     }
-    .section-head h2{margin:0;font-size:21px}
-    .section-head small{color:var(--muted);font-size:12px;text-align:right}
+    .section-title h2{font-size:22px;line-height:1.25;margin:0}
+    .section-title small{font-size:12px;color:var(--muted);text-align:right}
 
-    .quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    .quick-card{
-      border:0;background:#fff;border-radius:16px;padding:14px 11px;text-align:left;
-      box-shadow:var(--shadow);min-height:105px
+    .zone-intro{
+      padding:18px;border-radius:22px;margin-bottom:13px;
+      color:white;position:relative;overflow:hidden
     }
-    .quick-card .icon{font-size:23px}
-    .quick-card b{display:block;margin-top:8px;font-size:14px}
-    .quick-card span{font-size:11px;color:var(--muted)}
+    .zone-intro.stage{background:#161616}
+    .zone-intro.booth{background:#7a5b09}
+    .zone-intro h3{margin:0 0 5px;font-size:20px}
+    .zone-intro p{margin:0;font-size:13px;color:rgba(255,255,255,.84)}
+    .zone-tag{
+      display:inline-block;margin-top:10px;padding:5px 8px;border-radius:999px;
+      background:rgba(255,255,255,.15);font-size:11px;font-weight:900
+    }
 
-    .notice{
-      border-radius:18px;padding:15px 16px;background:var(--gold-soft);
-      border:1px solid #f0df91;margin:12px 0
-    }
-    .notice b{display:block;margin-bottom:4px}
-    .notice p{margin:0;font-size:13px}
-
-    .day-switch{display:flex;gap:8px;margin-bottom:12px}
-    .day-btn{
-      flex:1;border:1px solid #ddd;background:#fff;border-radius:14px;
-      padding:11px;font-weight:900
-    }
-    .day-btn.active{background:#111;color:#fff;border-color:#111}
-
-    .timeline{position:relative}
-    .event{
-      background:var(--card);border:1px solid var(--line);
-      border-radius:var(--radius);margin-bottom:12px;
-      box-shadow:0 6px 22px rgba(0,0,0,.05);
-      overflow:hidden
-    }
-    .event.hidden{display:none}
-    .event-top{
-      display:grid;grid-template-columns:78px 1fr auto;
-      gap:12px;align-items:start;padding:15px
-    }
-    .time{
-      font-weight:900;font-size:13px;line-height:1.35;
-      font-variant-numeric:tabular-nums
-    }
-    .event h3{font-size:17px;line-height:1.3;margin:0 0 7px}
-    .sub{font-size:12px;color:var(--muted)}
+    .legend{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
     .badge{
-      border-radius:999px;padding:5px 8px;font-size:10px;font-weight:900;
-      white-space:nowrap
+      display:inline-block;padding:5px 8px;border-radius:999px;
+      font-size:10px;font-weight:950;white-space:nowrap
     }
     .badge.live{background:var(--green-soft);color:var(--green)}
     .badge.partial{background:var(--blue-soft);color:var(--blue)}
     .badge.legend{background:var(--purple-soft);color:var(--purple)}
-    .badge.video{background:#efefef;color:#555}
-    .event details{border-top:1px solid var(--line);padding:0 15px}
-    .event summary{
-      list-style:none;padding:12px 0;font-size:13px;font-weight:850;color:#444
-    }
-    .event summary::-webkit-details-marker{display:none}
-    .event summary::after{content:"＋";float:right}
-    .event details[open] summary::after{content:"－"}
-    .detail-body{padding:0 0 15px;font-size:13px;color:#333}
-    .detail-body ul{padding-left:20px;margin:6px 0}
-    .detail-body p{margin:7px 0}
+    .badge.video{background:var(--gray-soft);color:#555}
+    .badge.booth{background:var(--gold-soft);color:#745700}
 
-    .priority{
-      display:grid;gap:10px
+    .day-card{
+      overflow:hidden;background:white;border:1px solid var(--line);
+      border-radius:22px;box-shadow:var(--shadow);margin-bottom:16px
     }
-    .priority-item{
-      display:grid;grid-template-columns:38px 1fr;gap:12px;
-      background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px
+    .day-head{
+      display:flex;justify-content:space-between;align-items:center;gap:10px;
+      padding:15px 17px;background:#111;color:white
+    }
+    .day-head h3{margin:0;font-size:20px}
+    .day-head span{font-size:11px;color:#edd777;font-weight:900}
+
+    .schedule-row{
+      display:grid;grid-template-columns:96px 1fr;
+      border-top:1px solid var(--line)
+    }
+    .schedule-row:first-of-type{border-top:0}
+    .schedule-time{
+      padding:16px 11px 16px 16px;
+      background:#fafaf7;font-size:13px;font-weight:950;
+      line-height:1.45;font-variant-numeric:tabular-nums
+    }
+    .schedule-content{padding:15px;min-width:0}
+    .schedule-head{
+      display:flex;justify-content:space-between;align-items:flex-start;
+      gap:8px;margin-bottom:5px
+    }
+    .schedule-head h4{font-size:17px;line-height:1.32;margin:0}
+    .place{font-size:12px;color:var(--muted);font-weight:750;margin-bottom:7px}
+    .schedule-content p,.schedule-content li{font-size:13px}
+    .schedule-content p{margin:6px 0}
+    .schedule-content ul{margin:7px 0;padding-left:19px}
+    .schedule-content li{margin:3px 0}
+    .note{
+      padding:10px 11px;border-radius:12px;margin-top:10px;
+      font-size:12px;font-weight:750
+    }
+    .note.live{background:var(--green-soft);color:var(--green)}
+    .note.partial{background:var(--blue-soft);color:var(--blue)}
+    .note.legend{background:var(--purple-soft);color:var(--purple)}
+    .note.video{background:var(--gray-soft);color:#555}
+    .eligibility{
+      padding:11px 12px;margin-top:10px;border-radius:13px;
+      background:var(--gold-soft);border:1px solid #eddd94;font-size:13px
+    }
+
+    .booth-hours{
+      background:white;border:1px solid var(--line);border-radius:19px;
+      padding:15px;margin-bottom:12px;box-shadow:0 5px 18px rgba(0,0,0,.04)
+    }
+    .booth-hours h3{margin:0 0 9px;font-size:17px}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th,td{text-align:left;padding:9px 6px;border-bottom:1px solid var(--line)}
+    th{font-size:11px;color:var(--muted)}
+    tr:last-child td{border-bottom:0}
+
+    .booth-card{
+      background:white;border:1px solid var(--line);border-radius:20px;
+      padding:16px;margin-bottom:12px;box-shadow:0 6px 20px rgba(0,0,0,.045)
+    }
+    .booth-card h3{margin:0 0 7px;font-size:18px}
+    .booth-card h4{margin:13px 0 5px;font-size:14px}
+    .booth-card p,.booth-card li{font-size:13px}
+    .booth-card p{margin:5px 0}
+    .booth-card ul,.booth-card ol{margin:7px 0;padding-left:20px}
+    .booth-card li{margin:3px 0}
+    .mini-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+    .mini-tag{
+      padding:5px 8px;border-radius:999px;background:#f1f1ed;
+      font-size:11px;font-weight:850
+    }
+
+    .warning{
+      padding:14px 15px;border-radius:17px;
+      background:var(--red-soft);border:1px solid #f1caca;
+      font-size:13px;margin:11px 0
+    }
+    .warning b{display:block;margin-bottom:3px}
+    .warning p{margin:0}
+
+    .strategy-grid{display:grid;gap:9px}
+    .strategy-item{
+      display:grid;grid-template-columns:40px 1fr;gap:11px;
+      background:white;border:1px solid var(--line);border-radius:16px;padding:12px
     }
     .rank{
-      width:38px;height:38px;border-radius:12px;background:#111;color:#fff;
-      display:grid;place-items:center;font-weight:900
+      width:40px;height:40px;border-radius:12px;background:#111;color:white;
+      display:grid;place-items:center;font-weight:950
     }
-    .priority-item b{font-size:14px}
-    .priority-item p{margin:3px 0 0;font-size:12px;color:var(--muted)}
-
-    .info-card{
-      background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-      padding:16px;margin-bottom:12px;box-shadow:0 5px 20px rgba(0,0,0,.04)
-    }
-    .info-card h3{margin:0 0 9px;font-size:18px}
-    .info-card h4{margin:14px 0 5px;font-size:14px}
-    .info-card p{font-size:13px;margin:5px 0}
-    .info-card ul{font-size:13px;margin:7px 0;padding-left:20px}
-    .mini-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
-    .mini-table th,.mini-table td{padding:9px 6px;border-bottom:1px solid var(--line);text-align:left}
-    .mini-table th{color:var(--muted);font-size:11px}
-    .tagrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
-    .tag{
-      font-size:11px;font-weight:800;border-radius:999px;padding:5px 8px;
-      background:#f1f1ed
-    }
+    .strategy-item b{font-size:14px}
+    .strategy-item p{margin:3px 0 0;font-size:12px;color:var(--muted)}
 
     .checklist{display:grid;gap:8px}
     .check{
-      display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--line);
-      border-radius:14px;padding:12px
+      display:flex;gap:10px;align-items:flex-start;padding:12px;
+      background:white;border:1px solid var(--line);border-radius:14px
     }
     .check input{width:20px;height:20px;margin-top:1px;accent-color:#111}
     .check span{font-size:13px}
     .check input:checked + span{text-decoration:line-through;color:#999}
     .reset{
-      border:0;background:none;color:var(--red);font-size:12px;font-weight:800;padding:6px
+      border:0;background:none;color:var(--red);font-size:12px;font-weight:900
     }
 
     .venue{
-      background:#111;color:#fff;border-radius:20px;padding:18px;position:relative;overflow:hidden
+      padding:18px;border-radius:20px;background:#111;color:white;
+      overflow:hidden;position:relative
     }
-    .venue::after{
+    .venue:after{
       content:"HALL 5";position:absolute;right:-4px;bottom:-20px;
       color:rgba(255,255,255,.08);font-size:70px;font-weight:1000
     }
     .venue h3{margin:0 0 7px}
-    .venue p{margin:3px 0;color:#ddd;font-size:13px}
-    .venue code{font-family:inherit;color:#f3d56c}
+    .venue p{margin:3px 0;font-size:13px;color:#ddd}
 
+    .hidden{display:none!important}
     .empty{
-      display:none;text-align:center;padding:26px 10px;color:var(--muted);font-size:13px
+      display:none;text-align:center;color:var(--muted);
+      font-size:13px;padding:20px 8px
     }
+    .footnote{margin:10px 2px 0;color:#777;font-size:11px}
 
     .bottomnav{
-      position:fixed;left:50%;bottom:0;transform:translateX(-50%);
-      width:min(100%,760px);z-index:30;
-      display:grid;grid-template-columns:repeat(4,1fr);
-      background:rgba(255,255,255,.96);
-      backdrop-filter:blur(16px);
-      border-top:1px solid var(--line);
-      padding:8px 6px var(--safe-bottom);
+      width:min(100%,780px);position:fixed;left:50%;bottom:0;transform:translateX(-50%);
+      display:grid;grid-template-columns:repeat(4,1fr);z-index:30;
+      padding:8px 5px var(--safe-bottom);
+      background:rgba(255,255,255,.96);backdrop-filter:blur(16px);
+      border-top:1px solid var(--line)
     }
     .bottomnav a{
-      text-decoration:none;text-align:center;font-size:10px;color:#555;font-weight:800
+      text-align:center;text-decoration:none;font-size:10px;
+      color:#555;font-weight:850
     }
     .bottomnav b{display:block;font-size:20px;line-height:1.2;color:#111}
-    .footnote{font-size:11px;color:#777;margin:12px 2px 0}
-    .hide-section{display:none!important}
 
-    @media (max-width:420px){
+    @media(max-width:460px){
       h1{font-size:27px}
-      .quick-grid{grid-template-columns:1fr 1fr}
-      .event-top{grid-template-columns:70px 1fr}
-      .event-top .badge{grid-column:2;justify-self:start}
+      .schedule-row{grid-template-columns:78px 1fr}
+      .schedule-time{padding-left:12px;font-size:12px}
+      .schedule-head{display:block}
+      .schedule-head .badge{margin-top:7px}
     }
   </style>
 </head>
@@ -267,7 +286,7 @@
   <header class="hero" id="top">
     <div class="eyebrow">GEN.G HOME STAND · 2026</div>
     <h1>HOUSE OF GEN.G<br>現場全攻略</h1>
-    <p>把選手真人節目、兩日時間軸、會員抽獎、集章與 VIP 服務集中在同一頁，現場不用一直翻貼文。</p>
+    <p>舞台節目與攤位活動分開整理：先查選手幾點上台，再安排輪盤、集章與 VIP 服務。</p>
     <div class="hero-meta">
       <span class="hero-chip">📅 7/31 Fri－8/1 Sat</span>
       <span class="hero-chip">📍 KINTEX 1 · Hall 5</span>
@@ -275,363 +294,358 @@
     </div>
   </header>
 
-  <div class="nowbar">
-    <span id="nextText">載入韓國時間與活動資訊中…</span>
+  <div class="clockbar">
+    <span id="nextText">載入韓國時間中…</span>
     <span id="kstClock">KST --:--</span>
   </div>
 
   <div class="toolbar">
-    <label class="searchbox">
+    <label class="search">
       <span>🔎</span>
-      <input id="search" placeholder="搜尋：Ruler、選手、輪盤、VIP、集章…" autocomplete="off">
+      <input id="searchInput" placeholder="搜尋：Ruler、Truth Room、輪盤、集章、VIP…">
     </label>
-    <div class="filters">
-      <button class="filter active" data-filter="all">全部</button>
-      <button class="filter" data-filter="players">看現役選手</button>
-      <button class="filter" data-filter="membership">會員活動</button>
-      <button class="filter" data-filter="gift">拿獎品</button>
-      <button class="filter" data-filter="vip">VIP</button>
+    <div class="top-jumps">
+      <button class="jump stage" onclick="location.hash='stage'">🎤 舞台 Schedule</button>
+      <button class="jump booth" onclick="location.hash='booth'">🎪 攤位活動</button>
+      <button class="jump" onclick="location.hash='strategy'">⚡ 行動順序</button>
+      <button class="jump" onclick="location.hash='checklist'">✅ 任務清單</button>
     </div>
   </div>
 
   <main>
-    <section id="quick">
-      <div class="section-head">
-        <h2>現場快速入口</h2>
-        <small>點一下直接跳到重點</small>
-      </div>
-      <div class="quick-grid">
-        <button class="quick-card" onclick="setFilterAndGo('players','schedule')">
-          <span class="icon">👀</span><b>追選手</b><span>只看真人出席</span>
-        </button>
-        <button class="quick-card" onclick="setFilterAndGo('gift','benefits')">
-          <span class="icon">🎁</span><b>拿獎品</b><span>輪盤＋集章</span>
-        </button>
-        <button class="quick-card" onclick="setFilterAndGo('vip','benefits')">
-          <span class="icon">⭐</span><b>VIP 服務</b><span>卡片客製刻字</span>
-        </button>
-        <button class="quick-card" onclick="location.hash='checklist'">
-          <span class="icon">✅</span><b>我的任務</b><span>可勾選保存</span>
-        </button>
-        <button class="quick-card" onclick="location.hash='venue'">
-          <span class="icon">📍</span><b>地點</b><span>Hall 5／Arena</span>
-        </button>
-        <button class="quick-card" onclick="location.hash='strategy'">
-          <span class="icon">⚡</span><b>最省時跑法</b><span>先做什麼</span>
-        </button>
+    <section id="stage">
+      <div class="section-title">
+        <h2>🎤 Arena Stage 舞台區</h2>
+        <small>節目時間、內容、選手本人出席狀況</small>
       </div>
 
-      <div class="notice">
-        <b>最重要的結論</b>
-        <p>要看 Ruler、Chovy、Kiin、Canyon、Duro 五人，優先守住 <strong>Truth Room</strong> 與兩天的<strong>賽後 Fan Meeting</strong>。Exclusive Premiere 是內容首播，不要把它當成現役選手真人節目。</p>
+      <div class="zone-intro stage">
+        <h3>舞台區只看「幾點有什麼節目」</h3>
+        <p>這裡不放輪盤、集章與 VIP 攤位流程，避免與舞台 Schedule 混在一起。</p>
+        <span class="zone-tag">主要地點：Arena Stage</span>
+      </div>
+
+      <div class="legend">
+        <span class="badge live">現役五人本人</span>
+        <span class="badge partial">選手部分參與</span>
+        <span class="badge legend">CuVee／Haru</span>
+        <span class="badge video">內容首播／非真人保證</span>
+      </div>
+
+      <article class="day-card searchable" data-keywords="7/31 day1 stage 舞台">
+        <header class="day-head">
+          <h3>7/31（Fri）Day 1</h3>
+          <span>ARENA STAGE</span>
+        </header>
+
+        <div class="schedule-row searchable" data-keywords="exclusive premiere ruler 十周年 docent surprise rivals friends 影片 首播">
+          <div class="schedule-time">13:00<br>–14:00</div>
+          <div class="schedule-content">
+            <div class="schedule-head">
+              <h4>🎬 Exclusive Premiere</h4>
+              <span class="badge video">首播內容</span>
+            </div>
+            <div class="place">📍 Arena Stage</div>
+            <p>HOUSE OF GEN.G 首次公開的 Ruler 十周年及 Gen.G 原創內容。</p>
+            <ul>
+              <li><b>Ruler 10th Anniversary Docent：</b>Ruler 回顧十年職業生涯的紀念內容。</li>
+              <li><b>Ruler 10th Anniversary Surprise：</b>與粉絲一起進行的十周年特別企劃。</li>
+              <li><b>RIVALS &amp; FRIENDS：</b>Gen.G 五位選手彼此對決，隊友、朋友與宿敵同場競技。</li>
+            </ul>
+            <div class="note video">追真人判斷：主軸是首次公開內容／影片，官方沒有保證五位現役選手本人會坐在舞台。若時間衝突，優先保留 14:30 Truth Room。</div>
+          </div>
+        </div>
+
+        <div class="schedule-row searchable" data-keywords="truth room 測謊機 ruler chovy kiin canyon duro 五位 現役 真人">
+          <div class="schedule-time">14:30<br>–14:50</div>
+          <div class="schedule-content">
+            <div class="schedule-head">
+              <h4>⚡ GEN.G Truth Room</h4>
+              <span class="badge live">現役五人</span>
+            </div>
+            <div class="place">📍 Arena Stage</div>
+            <p>五位 LoL 現役選手本人接受測謊機挑戰，官方主題為 <b>No secrets. No filters.</b></p>
+            <ul>
+              <li>真心話與現場聊天</li>
+              <li>隊內爆料與意想不到的回答</li>
+              <li>選手隱藏故事</li>
+            </ul>
+            <div class="note live">Day 1 白天最確定能看到五位現役選手同台的節目，只有 20 分鐘，建議提前到 Arena Stage 卡位。</div>
+          </div>
+        </div>
+
+        <div class="schedule-row searchable" data-keywords="legend live cast cuvee haru lck 比賽中 解說 傳奇">
+          <div class="schedule-time">LCK<br>比賽中</div>
+          <div class="schedule-content">
+            <div class="schedule-head">
+              <h4>🎙 GEN.G Legend Live Cast</h4>
+              <span class="badge legend">CuVee／Haru</span>
+            </div>
+            <div class="place">📍 Arena Stage</div>
+            <p>由 Gen.G 傳奇選手 <b>CuVee、Haru</b> 進行 Home Stand 限定現場同步解說。</p>
+            <div class="note legend">可以看到 CuVee、Haru 本人；Ruler、Chovy、Kiin、Canyon、Duro 此時正在打 LCK 比賽，不會坐在解說舞台。</div>
+          </div>
+        </div>
+
+        <div class="schedule-row searchable" data-keywords="ruler 10th anniversary fan meeting 賽後 30 分鐘 五人 mini game talk">
+          <div class="schedule-time">比賽結束<br>約 30 分鐘後</div>
+          <div class="schedule-content">
+            <div class="schedule-head">
+              <h4>🎉 Ruler 10th Anniversary Celebration Fan Meeting</h4>
+              <span class="badge live">現役五人全員</span>
+            </div>
+            <div class="place">📍 Arena Stage</div>
+            <ul>
+              <li>Ruler 十周年慶祝</li>
+              <li>Mini Game</li>
+              <li>Talk Time</li>
+              <li>五位現役選手全員出席</li>
+            </ul>
+            <div class="eligibility"><b>參加資格：</b>持有 7/31 當日比賽門票即可參加，不需要另外抽票。部分上台或互動名額可能優先挑選 TIGERNATION 會員。</div>
+            <div class="note live">Day 1 追選手最高優先。比賽結束後不要離場，官方標示約 30 分鐘後開始。</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card searchable" data-keywords="8/1 day2 stage 舞台">
+        <header class="day-head">
+          <h3>8/1（Sat）Day 2</h3>
+          <span>ARENA STAGE</span>
+        </header>
+
+        <div class="schedule-row searchable" data-keywords="soop streamer tournament finals 滅亡戰 coaching 賽評 頒獎 互動">
+          <div class="schedule-time">14:00<br>–18:00</div>
+          <div class="schedule-content">
+            <div class="schedule-head">
+              <h4>🏆 2026 SOOP Streamer Tournament Finals</h4>
+              <span class="badge partial">選手部分參與</span>
+            </div>
+            <div class="place">📍 Arena Stage</div>
+            <p>SOOP Streamer Tournament 總決賽，Gen.G 選手會參與部分流程：</p>
+            <ul>
+              <li>Coaching</li>
+              <li>賽評／解說</li>
+              <li>頒獎</li>
+              <li>現場互動</li>
+            </ul>
+            <div class="note partial">活動長達四小時，選手不會全程坐在舞台，也不保證五人同時出現；實際登場時間依現場流程。</div>
+          </div>
+        </div>
+
+        <div class="schedule-row searchable" data-keywords="legend live cast cuvee haru lck 比賽中 解說 傳奇">
+          <div class="schedule-time">LCK<br>比賽中</div>
+          <div class="schedule-content">
+            <div class="schedule-head">
+              <h4>🎙 GEN.G Legend Live Cast</h4>
+              <span class="badge legend">CuVee／Haru</span>
+            </div>
+            <div class="place">📍 Arena Stage</div>
+            <p>與 Day 1 相同，由 <b>CuVee、Haru</b> 進行 Gen.G Home Stand 限定現場轉播。</p>
+            <div class="note legend">可以看到 CuVee、Haru 本人；現役五人正在比賽。</div>
+          </div>
+        </div>
+
+        <div class="schedule-row searchable" data-keywords="all about gen fan meeting gen monopoly ask gen 五人 全員 賽後 30 分鐘">
+          <div class="schedule-time">比賽結束<br>約 30 分鐘後</div>
+          <div class="schedule-content">
+            <div class="schedule-head">
+              <h4>💛 ALL ABOUT GEN Fan Meeting</h4>
+              <span class="badge live">現役五人全員</span>
+            </div>
+            <div class="place">📍 Arena Stage</div>
+            <ul>
+              <li><b>GEN Monopoly：</b>GEN 主題桌遊／遊戲環節</li>
+              <li><b>Ask GEN：</b>現場 Q&amp;A</li>
+              <li>各式互動遊戲、聊天與粉絲活動</li>
+              <li>五位現役選手全員出席</li>
+            </ul>
+            <div class="eligibility"><b>參加資格：</b>持有 8/1 當日比賽門票即可參加，不需要另外抽票。上台與部分互動名額可能優先挑選 TIGERNATION 會員。</div>
+            <div class="note live">Day 2 追選手最高優先。比賽結束後留場等待約 30 分鐘。</div>
+          </div>
+        </div>
+      </article>
+
+      <div class="warning">
+        <b>舞台時間提醒</b>
+        <p>資料中沒有提供精確的 LCK 開賽／結束時間，所以 Live Cast 只能標示「比賽中」，Fan Meeting 只能標示「賽後約 30 分鐘」。現場以比賽進度、舞台看板及廣播為準。</p>
       </div>
     </section>
 
-    <section id="schedule" data-section-category="players">
-      <div class="section-head">
-        <h2>兩日完整時間軸</h2>
-        <small>點卡片可展開內容</small>
+    <section id="booth">
+      <div class="section-title">
+        <h2>🎪 Booth 攤位活動區</h2>
+        <small>輪盤、集章、VIP 刻字與會員驗證</small>
       </div>
 
-      <div class="day-switch">
-        <button class="day-btn active" data-day="day1">7/31 Day 1</button>
-        <button class="day-btn" data-day="day2">8/1 Day 2</button>
+      <div class="zone-intro booth">
+        <h3>攤位活動不是舞台 Schedule</h3>
+        <p>這些活動依 Booth 營運時間參加，建議在比賽開始前完成，不需要等待舞台節目開始。</p>
+        <span class="zone-tag">Membership Booth／TIGERNATION FAN BOOTH</span>
       </div>
 
-      <div class="timeline day-panel" id="day1">
-        <article class="event" data-category="video" data-keywords="exclusive premiere ruler 十周年 影片 首播 rivals friends docent surprise">
-          <div class="event-top">
-            <div class="time">13:00<br>–14:00</div>
-            <div>
-              <h3>🎬 Exclusive Premiere</h3>
-              <div class="sub">Arena Stage · 首次公開內容</div>
-            </div>
-            <span class="badge video">非真人重點</span>
-          </div>
-          <details>
-            <summary>查看節目內容與判斷</summary>
-            <div class="detail-body">
-              <ul>
-                <li><b>Ruler 10th Anniversary Docent：</b>Ruler 回顧十年職業生涯的紀念內容。</li>
-                <li><b>Ruler 10th Anniversary Surprise：</b>與粉絲相關的十周年特別企劃。</li>
-                <li><b>RIVALS &amp; FRIENDS：</b>Gen.G 五位選手的對決內容。</li>
-              </ul>
-              <p><b>追真人判斷：</b>屬於首次公開／影片內容，官方節目資訊沒有保證五位現役選手本人會在台上。若需要卡位，優先度低於 14:30 Truth Room。</p>
-            </div>
-          </details>
-        </article>
-
-        <article class="event" data-category="players" data-keywords="truth room 測謊機 五位 現役選手 ruler chovy kiin canyon duro 真人">
-          <div class="event-top">
-            <div class="time">14:30<br>–14:50</div>
-            <div>
-              <h3>⚡ GEN.G Truth Room</h3>
-              <div class="sub">Arena Stage · 測謊機／聊天互動</div>
-            </div>
-            <span class="badge live">現役五人</span>
-          </div>
-          <details open>
-            <summary>查看節目內容與卡位建議</summary>
-            <div class="detail-body">
-              <p>五位 LoL 現役選手本人上台接受測謊機挑戰，內容包含真心話、爆料、意外回答與隱藏故事。</p>
-              <p><b>卡位建議：</b>這是固定短時段，只有 20 分鐘，也是白天最確定能持續看到五人的節目，建議提早到 Arena Stage。</p>
-            </div>
-          </details>
-        </article>
-
-        <article class="event" data-category="legend" data-keywords="legend live cast cuvee haru 比賽 解說 傳奇 選手">
-          <div class="event-top">
-            <div class="time">LCK<br>比賽中</div>
-            <div>
-              <h3>🎙 GEN.G Legend Live Cast</h3>
-              <div class="sub">Arena Stage · 現場同步解說</div>
-            </div>
-            <span class="badge legend">CuVee／Haru</span>
-          </div>
-          <details>
-            <summary>這裡會看到誰？</summary>
-            <div class="detail-body">
-              <p>CuVee、Haru 會在現場進行 Gen.G Home Stand 限定轉播。</p>
-              <p><b>注意：</b>這裡能看到的是 Gen.G 傳奇選手／嘉賓，不是正在場上比賽的現役五人。</p>
-            </div>
-          </details>
-        </article>
-
-        <article class="event" data-category="players" data-keywords="ruler 10th anniversary celebration fan meeting 五位 全員 賽後 互動 talk mini game 真人">
-          <div class="event-top">
-            <div class="time">賽後約<br>30 分鐘</div>
-            <div>
-              <h3>🎉 Ruler 10th Anniversary Fan Meeting</h3>
-              <div class="sub">Arena Stage · 持當日比賽票可參加</div>
-            </div>
-            <span class="badge live">現役五人</span>
-          </div>
-          <details open>
-            <summary>查看內容與資格</summary>
-            <div class="detail-body">
-              <ul>
-                <li>五位現役選手全員出席</li>
-                <li>Mini Game、Talk Time</li>
-                <li>Ruler 十周年慶祝環節</li>
-              </ul>
-              <p><b>資格：</b>所有持有當天比賽門票者皆可參加，不需另外抽票；部分上台或互動環節可能優先挑選 TIGERNATION 會員。</p>
-            </div>
-          </details>
-        </article>
-      </div>
-
-      <div class="timeline day-panel hide-section" id="day2">
-        <article class="event" data-category="players" data-keywords="soop streamer tournament finals coaching 賽評 頒獎 選手 參與 14 18">
-          <div class="event-top">
-            <div class="time">14:00<br>–18:00</div>
-            <div>
-              <h3>🏆 2026 SOOP Streamer Tournament Finals</h3>
-              <div class="sub">Arena Stage · SOOP 滅亡戰總決賽</div>
-            </div>
-            <span class="badge partial">選手部分參與</span>
-          </div>
-          <details>
-            <summary>查看選手出現方式</summary>
-            <div class="detail-body">
-              <p>Gen.G 選手會參與 Coaching、賽評、頒獎與現場互動等環節。</p>
-              <p><b>注意：</b>活動長達四小時，選手不一定全程都在舞台，實際出場時間依現場流程。適合順路看，不適合把四小時全部當成五人 Fan Meeting。</p>
-            </div>
-          </details>
-        </article>
-
-        <article class="event" data-category="legend" data-keywords="legend live cast cuvee haru 比賽 解說 傳奇 選手">
-          <div class="event-top">
-            <div class="time">LCK<br>比賽中</div>
-            <div>
-              <h3>🎙 GEN.G Legend Live Cast</h3>
-              <div class="sub">Arena Stage · 現場同步解說</div>
-            </div>
-            <span class="badge legend">CuVee／Haru</span>
-          </div>
-          <details>
-            <summary>這裡會看到誰？</summary>
-            <div class="detail-body">
-              <p>與 Day 1 相同，由 CuVee、Haru 進行限定現場轉播。現役五人此時正在比賽。</p>
-            </div>
-          </details>
-        </article>
-
-        <article class="event" data-category="players" data-keywords="all about gen fan meeting 五位 全員 gen monopoly ask gen 賽後 真人">
-          <div class="event-top">
-            <div class="time">賽後約<br>30 分鐘</div>
-            <div>
-              <h3>💛 ALL ABOUT GEN Fan Meeting</h3>
-              <div class="sub">Arena Stage · 持當日比賽票可參加</div>
-            </div>
-            <span class="badge live">現役五人</span>
-          </div>
-          <details open>
-            <summary>查看內容與資格</summary>
-            <div class="detail-body">
-              <ul>
-                <li>五位現役選手全員出席</li>
-                <li>GEN Monopoly（GEN 桌遊）</li>
-                <li>Ask GEN 現場 Q&amp;A</li>
-                <li>互動遊戲、聊天與粉絲活動</li>
-              </ul>
-              <p><b>資格：</b>所有持有當天比賽門票者皆可參加，不需另外抽票；上台及部分互動可能優先挑選 TIGERNATION 會員。</p>
-            </div>
-          </details>
-        </article>
-      </div>
-
-      <div class="empty" id="eventEmpty">找不到符合條件的活動，請換關鍵字或按「全部」。</div>
-    </section>
-
-    <section id="strategy" data-section-category="players">
-      <div class="section-head">
-        <h2>追五位選手的優先順序</h2>
-        <small>Ruler · Chovy · Kiin · Canyon · Duro</small>
-      </div>
-      <div class="priority">
-        <div class="priority-item">
-          <div class="rank">1</div>
-          <div><b>兩天賽後 Fan Meeting</b><p>五人全員出席、時間較長、互動內容最多，是最高優先。</p></div>
-        </div>
-        <div class="priority-item">
-          <div class="rank">2</div>
-          <div><b>7/31 14:30 Truth Room</b><p>固定 20 分鐘、五人同台，白天最值得提早卡位。</p></div>
-        </div>
-        <div class="priority-item">
-          <div class="rank">3</div>
-          <div><b>比賽本身</b><p>現役五人會在競技舞台；Legend Live Cast 則是 CuVee、Haru。</p></div>
-        </div>
-        <div class="priority-item">
-          <div class="rank">4</div>
-          <div><b>8/1 SOOP Finals</b><p>選手會參與部分環節，但不保證全程或五人同時出現。</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="benefits">
-      <div class="section-head">
-        <h2>會員 Booth 與獎品攻略</h2>
-        <small>TIGERNATION 會員限定</small>
-      </div>
-
-      <article class="info-card filterable" data-category="membership gift" data-keywords="會員 booth roulette 輪盤 抽獎 legend 年票 月票 iPhone 小卡">
-        <h3>🎯 活動 1｜100% 中獎幸運輪盤</h3>
-        <p><b>參加對象：</b>TIGERNATION 全體會員</p>
-        <table class="mini-table">
-          <thead><tr><th>會員等級</th><th>輪盤次數</th></tr></thead>
-          <tbody>
-            <tr><td>LEGEND</td><td><b>3 次</b></td></tr>
-            <tr><td>年票</td><td><b>2 次</b></td></tr>
-            <tr><td>月票</td><td><b>1 次</b></td></tr>
-          </tbody>
-        </table>
-        <p>年票重新開放後的新加入會員，符合現場條件確認時，另有 <b>＋1 次</b>機會。</p>
-        <h4>TIME ATTACK BIG SPECIAL</h4>
-        <p>只在指定時段開放，時間以現場公告為準。獎品包含：</p>
-        <ul>
-          <li>iPhone 17 ＋ Gen.G × Festiver 手機配件套組（含選手簽名）</li>
-          <li>1 公尺超大型 Genrang 娃娃</li>
-          <li>選手親筆簽名隊服／海報</li>
-          <li>各式 Gen.G 周邊</li>
-          <li>Home Stand 限定選手小卡</li>
-        </ul>
-        <div class="tagrow"><span class="tag">現場詢問特別時段</span><span class="tag">獎品可能提早完售</span></div>
-      </article>
-
-      <article class="info-card filterable" data-category="membership gift" data-keywords="house of gen.g stamp tour 集章 任務 3 6 居民卡 明信片">
-        <h3>📍 活動 2｜House of Gen.G 集章巡禮</h3>
-        <p><b>參加對象：</b>TIGERNATION 全體會員；每人僅限參加 1 次。</p>
-        <h4>參加流程</h4>
-        <ol style="font-size:13px;padding-left:20px;margin:7px 0">
-          <li>到 Membership Booth 出示會員 App 登入畫面並領取集章本。</li>
-          <li>走訪各迷你 Booth，完成不同任務並收集印章。</li>
-          <li>回 Membership Booth 驗證完成數量並領獎。</li>
-        </ol>
-        <table class="mini-table">
-          <thead><tr><th>完成數</th><th>獎勵</th></tr></thead>
-          <tbody>
-            <tr><td>3 個指定必做任務</td><td>LoL 選手團手寫明信片類獎品</td></tr>
-            <tr><td>全部 6 個任務</td><td>House of Gen.G 限定「居民卡」</td></tr>
-          </tbody>
-        </table>
-      </article>
-
-      <article class="info-card filterable" data-category="vip" data-keywords="VIP card 刻字 卡片 客製 tigernation fan booth ticket">
-        <h3>⭐ VIP 座位購買者｜VIP 卡刻字</h3>
-        <p><b>地點：</b>Hall 5 活動區內 TIGERNATION FAN BOOTH</p>
-        <p><b>對象：</b>VIP 座位票持有人</p>
-        <h4>準備物</h4>
-        <ul>
-          <li>VIP 座位購買紀錄，或紙本／手機票券</li>
-          <li>VIP 卡</li>
-        </ul>
-        <p>可使用<b>韓文、英文字母或數字</b>自訂刻字；實際樣式以現場成品為準。</p>
-      </article>
-
-      <article class="info-card filterable" data-category="membership vip" data-keywords="booth 營運時間 day1 day2 11 12 比賽開始 一小時">
-        <h3>⏰ Membership／VIP Booth 營運時間</h3>
-        <table class="mini-table">
+      <article class="booth-hours searchable" data-keywords="booth 營運時間 7/31 8/1 11 12 比賽開始 一小時">
+        <h3>⏰ 攤位營運時間</h3>
+        <table>
           <thead><tr><th>日期</th><th>營運時間</th></tr></thead>
           <tbody>
-            <tr><td>7/31 Day 1</td><td>11:00 ～ 比賽開始後 1 小時</td></tr>
-            <tr><td>8/1 Day 2</td><td>12:00 ～ 比賽開始後 1 小時</td></tr>
+            <tr><td>7/31 Day 1</td><td><b>11:00 ～ 比賽開始後 1 小時</b></td></tr>
+            <tr><td>8/1 Day 2</td><td><b>12:00 ～ 比賽開始後 1 小時</b></td></tr>
           </tbody>
         </table>
-        <p><b>不要拖到賽後才去：</b>官方寫的是「比賽開始後 1 小時」停止，而不是比賽結束後。</p>
+        <div class="warning">
+          <b>不是比賽結束後 1 小時</b>
+          <p>官方文字是「比賽開始後 1 小時」停止，因此不要等到 Fan Meeting 結束才去做攤位任務。</p>
+        </div>
       </article>
 
-      <div class="notice">
-        <b>會員驗證一定要用即時登入畫面</b>
-        <p>現場需展示 Membership App 會員頁面，截圖／翻拍畫面不接受。所有獎品僅限現場領取、數量有限、不能因個人喜好交換或退換。</p>
+      <article class="booth-card searchable" data-keywords="membership app 會員驗證 登入 截圖 不接受">
+        <h3>📱 第一步｜會員驗證</h3>
+        <p>前往 <b>Gen.G Membership Booth</b>，展示 Membership App 的會員登入畫面。</p>
+        <ul>
+          <li>必須展示現場可操作的即時登入頁面</li>
+          <li><b>截圖或翻拍畫面不接受</b></li>
+          <li>先確認手機有網路、App 已登入、電量足夠</li>
+        </ul>
+      </article>
+
+      <article class="booth-card searchable" data-keywords="roulette 輪盤 100 中獎 legend 年票 月票 iphone 17 genrang 簽名 小卡">
+        <h3>🎯 活動 1｜100% 中獎幸運輪盤</h3>
+        <p><b>參加資格：</b>所有 TIGERNATION 會員。</p>
+        <table>
+          <thead><tr><th>會員等級</th><th>可參加次數</th></tr></thead>
+          <tbody>
+            <tr><td>LEGEND</td><td><b>3 次</b></td></tr>
+            <tr><td>年票會員</td><td><b>2 次</b></td></tr>
+            <tr><td>月票會員</td><td><b>1 次</b></td></tr>
+          </tbody>
+        </table>
+        <p>年票重新開放後的新加入會員，符合現場條件確認時，另可獲得 <b>＋1 次</b>輪盤機會。</p>
+
+        <h4>TIME ATTACK BIG SPECIAL</h4>
+        <p>只在現場指定時段開放，確切時間需到攤位詢問或查看公告。</p>
+        <ul>
+          <li>iPhone 17</li>
+          <li>Gen.G × Festiver 手機配件完整套組，含選手親筆簽名</li>
+          <li>1 公尺超大型 Genrang 娃娃</li>
+          <li>選手親筆簽名隊服／海報</li>
+          <li>各式 Gen.G 周邊商品</li>
+          <li>Home Stand 限定選手小卡</li>
+        </ul>
+        <div class="mini-tags">
+          <span class="mini-tag">100% 中獎</span>
+          <span class="mini-tag">獎品隨機</span>
+          <span class="mini-tag">數量有限</span>
+        </div>
+      </article>
+
+      <article class="booth-card searchable" data-keywords="stamp 集章 house of gen.g 任務 3 6 居民卡 手寫 明信片">
+        <h3>📍 活動 2｜House of Gen.G 集章巡禮</h3>
+        <p><b>參加資格：</b>所有 TIGERNATION 會員；每人原則上只能參加 1 次。</p>
+
+        <h4>參加流程</h4>
+        <ol>
+          <li>在 Membership Booth 完成會員驗證並領取集章本。</li>
+          <li>前往 House of Gen.G 各迷你攤位完成指定任務。</li>
+          <li>取得印章後回 Membership Booth 驗證並領獎。</li>
+        </ol>
+
+        <table>
+          <thead><tr><th>完成條件</th><th>獎勵</th></tr></thead>
+          <tbody>
+            <tr><td>完成 3 個指定必做任務</td><td>LoL 選手團手寫明信片類獎品／展示品</td></tr>
+            <tr><td>完成全部 6 個任務</td><td>House of Gen.G 限定「居民卡」</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="booth-card searchable" data-keywords="VIP card 刻字 客製 tigernation fan booth ticket 韓文 英文 數字">
+        <h3>⭐ 活動 3｜VIP 卡客製刻字</h3>
+        <p><b>地點：</b>Hall 5 活動區內的 TIGERNATION FAN BOOTH</p>
+        <p><b>參加資格：</b>VIP 座位門票購買者。</p>
+
+        <h4>需準備</h4>
+        <ul>
+          <li>VIP 座位購買紀錄，或紙本／手機電子票</li>
+          <li>VIP 卡</li>
+        </ul>
+
+        <p>可使用<b>韓文字、英文字母或數字</b>進行客製刻印，實際成果以現場為準。</p>
+      </article>
+
+      <div class="warning">
+        <b>攤位活動共同注意事項</b>
+        <p>所有獎品僅限現場領取，數量有限，可能提前結束或更換獎品。隨機獎品不能因個人喜好要求交換或退換。</p>
+      </div>
+    </section>
+
+    <section id="strategy">
+      <div class="section-title">
+        <h2>⚡ 現場最順行動順序</h2>
+        <small>先攤位，再舞台</small>
+      </div>
+
+      <div class="strategy-grid">
+        <div class="strategy-item">
+          <div class="rank">1</div>
+          <div><b>開場後先去 Membership Booth</b><p>完成會員驗證、詢問 BIG SPECIAL 時段、領集章本。</p></div>
+        </div>
+        <div class="strategy-item">
+          <div class="rank">2</div>
+          <div><b>先做輪盤與至少 3 個集章任務</b><p>攤位只營運到比賽開始後 1 小時，不能拖到賽後。</p></div>
+        </div>
+        <div class="strategy-item">
+          <div class="rank">3</div>
+          <div><b>7/31 提前去卡 Truth Room</b><p>14:30 開始且只有 20 分鐘，是白天最確定的五人同台節目。</p></div>
+        </div>
+        <div class="strategy-item">
+          <div class="rank">4</div>
+          <div><b>比賽結束後不要離場</b><p>兩天 Fan Meeting 都是五位現役選手全員出席，約賽後 30 分鐘開始。</p></div>
+        </div>
       </div>
     </section>
 
     <section id="checklist">
-      <div class="section-head">
-        <h2>我的現場任務</h2>
-        <button class="reset" id="resetChecklist">全部重設</button>
+      <div class="section-title">
+        <h2>✅ 我的任務清單</h2>
+        <button class="reset" id="resetBtn">全部重設</button>
       </div>
-      <div class="checklist" id="checklistItems">
-        <label class="check"><input type="checkbox" data-id="login"><span>Membership App 已登入，現場可直接展示即時畫面</span></label>
-        <label class="check"><input type="checkbox" data-id="battery"><span>手機充飽電，已帶行動電源與網路</span></label>
+
+      <div class="checklist" id="checklistBox">
+        <label class="check"><input type="checkbox" data-id="login"><span>Membership App 已登入，現場可直接展示即時頁面</span></label>
+        <label class="check"><input type="checkbox" data-id="power"><span>手機充飽電，已帶行動電源與可用網路</span></label>
         <label class="check"><input type="checkbox" data-id="booth"><span>抵達後先找到 Membership Booth</span></label>
-        <label class="check"><input type="checkbox" data-id="special"><span>詢問當天 TIME ATTACK BIG SPECIAL 開放時段</span></label>
-        <label class="check"><input type="checkbox" data-id="roulette"><span>用完我的輪盤次數</span></label>
-        <label class="check"><input type="checkbox" data-id="stampbook"><span>領取集章本並確認 3 個必做任務</span></label>
-        <label class="check"><input type="checkbox" data-id="three"><span>完成至少 3 個任務並領取第一階段獎勵</span></label>
-        <label class="check"><input type="checkbox" data-id="six"><span>完成全部 6 個任務並領限定居民卡</span></label>
-        <label class="check"><input type="checkbox" data-id="truth"><span>7/31 14:30 前到 Arena Stage 卡 Truth Room</span></label>
-        <label class="check"><input type="checkbox" data-id="fanmeeting"><span>比賽結束後留場，等待約 30 分鐘後 Fan Meeting</span></label>
+        <label class="check"><input type="checkbox" data-id="special"><span>已詢問 TIME ATTACK BIG SPECIAL 開放時間</span></label>
+        <label class="check"><input type="checkbox" data-id="roulette"><span>已用完自己的輪盤次數</span></label>
+        <label class="check"><input type="checkbox" data-id="stampbook"><span>已領集章本並確認 3 個必做任務</span></label>
+        <label class="check"><input type="checkbox" data-id="three"><span>已完成至少 3 個任務並領第一階段獎勵</span></label>
+        <label class="check"><input type="checkbox" data-id="six"><span>已完成全部 6 個任務並領居民卡</span></label>
+        <label class="check"><input type="checkbox" data-id="truth"><span>7/31 已提前到 Arena Stage 卡 Truth Room</span></label>
+        <label class="check"><input type="checkbox" data-id="fan"><span>比賽結束後已留場等待 Fan Meeting</span></label>
         <label class="check"><input type="checkbox" data-id="vip"><span>VIP 持票者已帶票券紀錄與 VIP 卡去刻字</span></label>
       </div>
-      <p class="footnote">勾選結果會自動保存在目前瀏覽器，不怕重新整理後消失。</p>
+      <p class="footnote">勾選狀態會保存在目前瀏覽器中，重新整理後仍會保留。</p>
     </section>
 
     <section id="venue">
-      <div class="section-head">
-        <h2>地點與現場辨識</h2>
-        <small>主要節目都在 Arena Stage</small>
+      <div class="section-title">
+        <h2>📍 地點</h2>
+        <small>舞台與攤位都在 Hall 5 活動區</small>
       </div>
       <div class="venue">
-        <h3>🏠 HOUSE OF GEN.G</h3>
-        <p><code>KINTEX Exhibition Center 1 · Hall 5</code></p>
+        <h3>HOUSE OF GEN.G</h3>
+        <p>KINTEX Exhibition Center 1 · Hall 5</p>
         <p>韓文：킨텍스 제1전시장 5홀</p>
         <p>地址：경기도 고양시 일산서구 킨텍스로 210-60</p>
-        <p>舞台：Arena Stage</p>
+        <p>主要舞台：Arena Stage</p>
       </div>
     </section>
 
-    <section>
-      <div class="notice" style="background:var(--red-soft);border-color:#f0caca">
-        <b>現場變動提醒</b>
-        <p>賽後 Fan Meeting、選手部分參與環節與 BIG SPECIAL 時段可能依比賽長度及現場公告調整。抵達後以工作人員、舞台看板與廣播為最終準則。</p>
-      </div>
-    </section>
+    <div class="empty" id="emptyState">找不到符合搜尋條件的內容。</div>
   </main>
 
-  <nav class="bottomnav" aria-label="快速導覽">
-    <a href="#schedule"><b>🗓️</b>時間軸</a>
-    <a href="#benefits"><b>🎁</b>會員獎品</a>
+  <nav class="bottomnav">
+    <a href="#stage"><b>🎤</b>舞台</a>
+    <a href="#booth"><b>🎪</b>攤位</a>
     <a href="#checklist"><b>✅</b>任務</a>
     <a href="#venue"><b>📍</b>地點</a>
   </nav>
@@ -639,93 +653,68 @@
 
 <script>
 (() => {
-  const $ = (s, root=document) => root.querySelector(s);
-  const $$ = (s, root=document) => [...root.querySelectorAll(s)];
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => [...r.querySelectorAll(s)];
 
-  // Day tabs
-  $$('.day-btn').forEach(btn => btn.addEventListener('click', () => {
-    $$('.day-btn').forEach(b => b.classList.toggle('active', b === btn));
-    $$('.day-panel').forEach(p => p.classList.toggle('hide-section', p.id !== btn.dataset.day));
-    applyFilter();
-  }));
+  const searchInput = $('#searchInput');
+  const searchable = $$('.searchable');
 
-  // Filter + search
-  let activeFilter = 'all';
-  const search = $('#search');
-
-  $$('.filter').forEach(btn => btn.addEventListener('click', () => {
-    activeFilter = btn.dataset.filter;
-    $$('.filter').forEach(b => b.classList.toggle('active', b === btn));
-    applyFilter();
-  }));
-  search.addEventListener('input', applyFilter);
-
-  window.setFilterAndGo = (filter, id) => {
-    activeFilter = filter;
-    $$('.filter').forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
-    applyFilter();
-    location.hash = id;
-  };
-
-  function normalize(s){
-    return (s || '').toLowerCase().replace(/\s+/g,'');
+  function norm(v){
+    return (v || '').toLowerCase().replace(/\s+/g,'');
   }
 
-  function matchCategory(el){
-    const cat = el.dataset.category || '';
-    if(activeFilter === 'all') return true;
-    if(activeFilter === 'gift') return cat.includes('gift');
-    if(activeFilter === 'membership') return cat.includes('membership');
-    if(activeFilter === 'vip') return cat.includes('vip');
-    if(activeFilter === 'players') return cat.includes('players');
-    return true;
-  }
+  function applySearch(){
+    const q = norm(searchInput.value);
+    let visible = 0;
 
-  function applyFilter(){
-    const q = normalize(search.value);
-    let visibleEvents = 0;
-
-    $$('.event').forEach(el => {
-      const text = normalize(el.innerText + ' ' + (el.dataset.keywords || ''));
-      const show = matchCategory(el) && (!q || text.includes(q));
+    searchable.forEach(el => {
+      if(el.classList.contains('day-card')){
+        return;
+      }
+      const text = norm(el.innerText + ' ' + (el.dataset.keywords || ''));
+      const show = !q || text.includes(q);
       el.classList.toggle('hidden', !show);
-      if(show && !el.closest('.day-panel').classList.contains('hide-section')) visibleEvents++;
+      if(show) visible++;
     });
 
-    $$('.filterable').forEach(el => {
-      const text = normalize(el.innerText + ' ' + (el.dataset.keywords || ''));
-      const show = matchCategory(el) && (!q || text.includes(q));
-      el.classList.toggle('hide-section', !show);
+    $$('.day-card').forEach(card => {
+      const rows = $$('.schedule-row', card);
+      const anyRow = rows.some(row => !row.classList.contains('hidden'));
+      const ownText = norm(card.dataset.keywords || '');
+      const show = !q || anyRow || ownText.includes(q);
+      card.classList.toggle('hidden', !show);
     });
 
-    $('#eventEmpty').style.display = visibleEvents ? 'none' : 'block';
+    $('#emptyState').style.display = visible ? 'none' : 'block';
   }
 
-  // Checklist persistence
-  const storageKey = 'geng-homestand-2026-checklist';
-  let saved = {};
-  try { saved = JSON.parse(localStorage.getItem(storageKey) || '{}'); } catch(e) {}
+  searchInput.addEventListener('input', applySearch);
 
-  $$('#checklistItems input').forEach(input => {
+  const key = 'geng-2026-guide-checklist-v2';
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(key) || '{}'); } catch(e){}
+
+  $$('#checklistBox input').forEach(input => {
     input.checked = !!saved[input.dataset.id];
     input.addEventListener('change', () => {
       saved[input.dataset.id] = input.checked;
-      localStorage.setItem(storageKey, JSON.stringify(saved));
+      localStorage.setItem(key, JSON.stringify(saved));
     });
   });
 
-  $('#resetChecklist').addEventListener('click', () => {
+  $('#resetBtn').addEventListener('click', () => {
     if(!confirm('要清除全部勾選紀錄嗎？')) return;
     saved = {};
-    localStorage.removeItem(storageKey);
-    $$('#checklistItems input').forEach(i => i.checked = false);
+    localStorage.removeItem(key);
+    $$('#checklistBox input').forEach(i => i.checked = false);
   });
 
-  // Seoul clock + contextual message
-  function seoulParts(date = new Date()){
-    const parts = new Intl.DateTimeFormat('en-CA', {
-      timeZone:'Asia/Seoul', year:'numeric', month:'2-digit', day:'2-digit',
-      hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false
+  function seoulParts(date=new Date()){
+    const parts = new Intl.DateTimeFormat('en-CA',{
+      timeZone:'Asia/Seoul',
+      year:'numeric',month:'2-digit',day:'2-digit',
+      hour:'2-digit',minute:'2-digit',second:'2-digit',
+      hour12:false
     }).formatToParts(date);
     return Object.fromEntries(parts.map(p => [p.type,p.value]));
   }
@@ -733,33 +722,32 @@
   function updateClock(){
     const p = seoulParts();
     $('#kstClock').textContent = `KST ${p.hour}:${p.minute}`;
-    const key = `${p.year}-${p.month}-${p.day}`;
-    const mins = Number(p.hour) * 60 + Number(p.minute);
-    let msg = '活動前：先確認會員 App、票券與行動電源';
+    const date = `${p.year}-${p.month}-${p.day}`;
+    const mins = Number(p.hour)*60 + Number(p.minute);
+    let text = '活動前：先確認會員 App、票券與行動電源';
 
-    if(key === '2026-07-31'){
-      if(mins < 660) msg = 'Day 1｜11:00 Membership Booth 開始';
-      else if(mins < 780) msg = 'Day 1｜先完成輪盤／集章，再去 Arena Stage';
-      else if(mins < 840) msg = '進行中／下一個：14:30 Truth Room';
-      else if(mins < 870) msg = '下一個：14:30 Truth Room，建議開始卡位';
-      else if(mins < 890) msg = '現在：GEN.G Truth Room';
-      else msg = '稍後：比賽中 Live Cast；賽後約 30 分鐘 Fan Meeting';
-    } else if(key === '2026-08-01'){
-      if(mins < 720) msg = 'Day 2｜12:00 Membership Booth 開始';
-      else if(mins < 840) msg = '先完成會員任務；14:00 SOOP Finals';
-      else if(mins < 1080) msg = '進行中：SOOP Streamer Tournament Finals';
-      else msg = '比賽結束後留場：ALL ABOUT GEN Fan Meeting';
-    } else if(key < '2026-07-31'){
-      msg = '活動前準備：登入 Membership App、確認票券';
-    } else {
-      msg = '活動已結束｜頁面仍可作為紀錄查閱';
+    if(date === '2026-07-31'){
+      if(mins < 660) text = 'Day 1｜11:00 攤位開始營運';
+      else if(mins < 780) text = '先做攤位任務；13:00 Exclusive Premiere';
+      else if(mins < 840) text = '舞台進行中；下一個 14:30 Truth Room';
+      else if(mins < 870) text = '14:30 Truth Room 即將開始，建議去舞台區';
+      else if(mins < 890) text = '現在：GEN.G Truth Room';
+      else text = '比賽中 Live Cast；賽後約 30 分鐘 Fan Meeting';
+    } else if(date === '2026-08-01'){
+      if(mins < 720) text = 'Day 2｜12:00 攤位開始營運';
+      else if(mins < 840) text = '先完成攤位活動；14:00 SOOP Finals';
+      else if(mins < 1080) text = '舞台進行中：SOOP Streamer Tournament Finals';
+      else text = '比賽結束後留場：ALL ABOUT GEN Fan Meeting';
+    } else if(date > '2026-08-01'){
+      text = '活動已結束｜頁面可繼續作為紀錄查閱';
     }
-    $('#nextText').textContent = msg;
+
+    $('#nextText').textContent = text;
   }
 
   updateClock();
   setInterval(updateClock, 30000);
-  applyFilter();
+  applySearch();
 })();
 </script>
 </body>
